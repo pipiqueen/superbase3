@@ -2,13 +2,13 @@ package com.utn.vista;
 
 public interface LibroDAO extends AutoCloseable {
 
-	public void aniadirLibro();
+	public int aniadirLibro(Libro libro);
 
-	public void borrarLibro();
+	public int borrarLibro(Libro libro);
 
-	public void verLibro();
+	public void verLibro(Libro libro);
 
-	public void prestarLibro();
+	public int prestarLibro(Libro libro);
 
 	public void devolverLibro();
 
