@@ -103,6 +103,7 @@ public class Test {
 					JOptionPane.showMessageDialog(null,
 							"El libro " + libro.getNombre() + " del autor " + libro.getAutor() + " de la editorial "
 									+ libro.getEditorial() + " esta ubicado en " + libro.getUbicacion());
+
 				}
 
 			}
@@ -113,6 +114,10 @@ public class Test {
 		JButton button = new JButton("Retirar un Libro");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				libro.setNombre(JOptionPane.showInputDialog(null, "Ingrese el libro a retirar"));
+
+				impl.retirarLibro(libro);
 			}
 		});
 		button.setFont(new Font("Times New Roman", Font.PLAIN, 20));
@@ -130,6 +135,7 @@ public class Test {
 				libro.setEditorial(JOptionPane.showInputDialog(null, "Ingrse el nombre de la editorial"));
 				libro.setUbicacion(JOptionPane.showInputDialog(null, "Ingrese la ubicacion. ej: A2"));
 				libro.setRetirado((JOptionPane.showConfirmDialog(null, "Esta en la biblioteca?")));
+				libro.setPrecio(Float.parseFloat(JOptionPane.showInputDialog(null, "Ingrese el valor del libro, se aceptan .")));
 
 				impl.aniadirLibro(libro);
 			}
@@ -158,6 +164,12 @@ public class Test {
 		JButton button_3 = new JButton("Modificar un Libro");
 		button_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				libro.setNombre(JOptionPane.showInputDialog(null, "Ingrese el nombre del libro a modificar"));
+				
+				
+				
+				impl.modificarLibro(libro);
 			}
 		});
 		button_3.setFont(new Font("Times New Roman", Font.PLAIN, 20));
@@ -169,21 +181,30 @@ public class Test {
 		button_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				libro.setNombre("Ingrese el nombre del libro a prestar");
-				libro.setPrestadoA(JOptionPane.showInputDialog(null, "Ingrese el nombre de la persona a quien se lo presta"));
-				
+				libro.setNombre(JOptionPane.showInputDialog("Ingrese el nombre del libro a prestar"));
+				libro.setPrestadoA(
+						JOptionPane.showInputDialog(null, "Ingrese el nombre de la persona a quien se lo presta"));
+
 				impl.prestarLibro(libro);
-				
-				
+
+			}
 		});
-		
-		
+
 		button_4.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		button_4.setBackground(Color.LIGHT_GRAY);
 		button_4.setBounds(615, 605, 187, 94);
 		frame.getContentPane().add(button_4);
 
 		JButton button_5 = new JButton("Devolver un Libro");
+		button_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+				libro.setNombre(JOptionPane.showInputDialog(null, "Ingrese el nombre del libro a devolver"));
+
+				impl.devolverLibro(libro);
+
+			}
+		});
 		button_5.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		button_5.setForeground(Color.BLACK);
 		button_5.setBackground(Color.LIGHT_GRAY);

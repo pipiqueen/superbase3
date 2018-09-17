@@ -8,6 +8,16 @@ public class Libro {
 	private String ubicacion;
 	private int retirado;
 	private String prestadoA;
+	private float precio;
+
+	public float getPrecio() {
+		return precio;
+
+	}
+
+	public void setPrecio(float precio) {
+		this.precio = precio;
+	}
 
 	public String getNombre() {
 		return nombre;

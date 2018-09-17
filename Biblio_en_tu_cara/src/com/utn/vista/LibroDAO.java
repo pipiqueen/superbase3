@@ -10,10 +10,12 @@ public interface LibroDAO extends AutoCloseable {
 
 	public int prestarLibro(Libro libro);
 
-	public void devolverLibro();
+	public int devolverLibro(Libro libro);
 
-	public void retirarLibro();
+	public int retirarLibro(Libro libro);
 
-	public void modificarLibro();
+	public int modificarLibro(Libro libro);
+	
+	
 
 }
